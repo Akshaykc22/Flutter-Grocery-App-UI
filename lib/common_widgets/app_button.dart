@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/styles/colors.dart';
+
+import '../presentation/styles/colors.dart';
+
 
 class AppButton extends StatelessWidget {
   final String label;
   final double roundness;
   final FontWeight fontWeight;
   final EdgeInsets padding;
-  final Widget trailingWidget;
-  final Function onPressed;
+  final Widget? trailingWidget;
+  final Function? onPressed;
 
   const AppButton({
-    Key key,
-    this.label,
+    Key? key,
+    required this.label,
     this.roundness = 18,
     this.fontWeight = FontWeight.bold,
     this.padding = const EdgeInsets.symmetric(vertical: 24),
-    this.trailingWidget,
-    this.onPressed,
+     this.trailingWidget,
+     this.onPressed,
   }) : super(key: key);
 
   @override
@@ -49,12 +51,12 @@ class AppButton extends StatelessWidget {
               Positioned(
                 top: 0,
                 right: 25,
-                child: trailingWidget,
+                child: trailingWidget??Container(),
               )
           ],
         ),
         onPressed: () {
-          if (onPressed != null) onPressed();
+          if (onPressed != null) onPressed!();
         },
       ),
     );
